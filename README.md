@@ -15,7 +15,7 @@ Create a stream from an array of items.
 
 ## Filters
 
-### slow(stream, [ms=10]) -> stream
+### slow(stream, [ms=1]) -> stream
 
 Simulate latency into a stream.  Can be used right after sources to simulate slow sources and right before sinks to simulate slow sinks.
 

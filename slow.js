@@ -2,7 +2,7 @@ module.exports = slow;
 
 function slow(stream, ms) {
 
-  if (ms === undefined) ms = 10;
+  if (ms === undefined) ms = 1;
 
   return { read: read, abort: stream.abort };
 
