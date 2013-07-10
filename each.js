@@ -1,14 +1,13 @@
-module.exports = eachFast;
+module.exports = each;
 
-function eachFast(stream, onItem) {
-  var callback;
-  var sync;
+function each(stream, onItem) {
+  var callback, sync;
 
   return function (cb) {
     callback = cb;
     start();
   };
-  
+
   function start() {
     do {
       sync = undefined;
@@ -16,11 +15,12 @@ function eachFast(stream, onItem) {
       if (sync === undefined) sync = false;
     } while (sync);
   }
-  
+
   function onRead(err, item) {
     if (item === undefined) return callback(err);
     if (onItem) onItem(item);
     if (sync === undefined) sync = true;
     else start();
   }
+
 }

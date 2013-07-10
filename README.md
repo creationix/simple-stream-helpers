@@ -3,7 +3,25 @@ simple-stream-helpers
 
 Helpers that aid in unit tests for simple-stream based projects.
 
-## eachFast(stream, [onItem]) -> continuable
+## Sources
+
+### binarySource(buffer, chunkSize) -> stream<binary>
+
+Create a stream from a single buffer broken up into chunks.
+
+### arraySource(array) -> stream
+
+Create a stream from an array of items.
+
+## Filters
+
+### slow(stream, ms) -> stream
+
+Simulate latency into a stream.  Can be used right after sources to simulate slow sources and right before sinks to simulate slow sinks.
+
+## Sinks
+
+### each(stream, [onItem]) -> continuable
 
 Consume a stream as fast as possible calling onItem for each value in the stream (not including undefined at the end).
 
@@ -11,22 +29,7 @@ This can consume large sync streams without blowing the stack.
 
 The continuable resolves when the stream is done or has an error.
 
-## eachSlow(stream, ms, [onItem]) -> continuable
-
-Same as eachFast, except has a small delay between read calls to simulate a slow client.
-
-## binarySourceFast(buffer, chunkSize) -> stream<binary>
-
-Create a binary data stream from a buffer.  This will call the read callback before returning.
-
-## binarySourceSlow(buffer, ms, chunkSize) -> stream<binary>
-
-Same as before, but pauses before calling the callback to simulate a slow source.
-
-## consumeFast(stream) -> continuable<items>
+### consume(stream) -> continuable<items>
 
 Consume a stream and collect all the events.
 
-## consumeSlow(stream, ms) -> continuable<items>
-
-Same as fast, but slow.
