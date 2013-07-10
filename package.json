@@ -1,6 +1,6 @@
 {
   "name": "simple-stream-helpers",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Helpers that aid in unit tests for simple-stream based projects.",
   "main": "helpers.js",
   "scripts": {
@@ -21,5 +21,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/creationix/simple-stream-helpers/issues"
+  },
+  "devDependencies": {
+    "bops": "~0.0.6"
   }
 }
