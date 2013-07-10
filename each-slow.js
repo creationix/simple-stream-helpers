@@ -1,6 +1,6 @@
 module.exports = eachSlow;
 
-function eachSlow(stream, onItem, ms) {
+function eachSlow(stream, ms, onItem) {
   var callback;
 
   return function (cb) {
@@ -14,7 +14,7 @@ function eachSlow(stream, onItem, ms) {
   
   function onRead(err, item) {
     if (item === undefined) return callback(err);
-    onItem(item);
+    if (onItem) onItem(item);
     setTimeout(start, ms);
   }
 }

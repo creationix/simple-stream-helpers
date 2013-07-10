@@ -19,7 +19,7 @@ function eachFast(stream, onItem) {
   
   function onRead(err, item) {
     if (item === undefined) return callback(err);
-    onItem(item);
+    if (onItem) onItem(item);
     if (sync === undefined) sync = true;
     else start();
   }
