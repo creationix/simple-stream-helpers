@@ -3,8 +3,8 @@ var bops = require('bops');
 module.exports = binarySource;
 
 function binarySource(buffer, chunkSize) {
-
   var start = 0, length = buffer.length;
+  if (chunkSize === undefined) chunkSize = 42;
 
   return {
     read: binaryRead,

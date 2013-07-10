@@ -5,7 +5,7 @@ Helpers that aid in unit tests for simple-stream based projects.
 
 ## Sources
 
-### binarySource(buffer, chunkSize) -> stream<binary>
+### binarySource(buffer, [chunkSize=42]) -> stream&lt;binary>
 
 Create a stream from a single buffer broken up into chunks.
 
@@ -15,7 +15,7 @@ Create a stream from an array of items.
 
 ## Filters
 
-### slow(stream, ms) -> stream
+### slow(stream, [ms=10]) -> stream
 
 Simulate latency into a stream.  Can be used right after sources to simulate slow sources and right before sinks to simulate slow sinks.
 
@@ -29,7 +29,7 @@ This can consume large sync streams without blowing the stack.
 
 The continuable resolves when the stream is done or has an error.
 
-### consume(stream) -> continuable<items>
+### consume(stream) -> continuable&lt;items>
 
 Consume a stream and collect all the events.
 
