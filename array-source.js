@@ -8,7 +8,7 @@ function arraySource(array) {
   };
 
   function arrayRead(callback) {
-    callback(array.shift());
+    callback(null, array.shift());
   }
 
   function arrayAbort(callback) {
